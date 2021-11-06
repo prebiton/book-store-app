@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let bok of bookList">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a routerLink="/books/{{bok.BId}}" class="image">
+                        <img class="pic-1" [src]="bok.BImgPath">
+                        <img class="pic-2" [src]="bok.BImgPath">
+                    </a>
+                    <ul class="product-links">
+                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        <li><a href="#"><i class="far fa-heart"></i></a></li>
+                    </ul>
+                </div>
+                <div class="product-content">
+                    <ul class="rating">
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="far fa-star"></li>
+                        <li class="far fa-star"></li>
+                    </ul>
+                    <h3 class="title"><a routerLink="/books/{{bok. BId}}">{{bok.BTitle}}</a></h3>
+                    <div class="price">${{bok.BPrice}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-lg-3 col-md-6" *ngFor="let book of bookList">
+            <div class="card" style="width: 18rem;" >
+                <img [src]="book.BImgPath" class="card-img-top p-1" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{book.BTitle}}</h5>
+                    <p class="card-text">{{book.BDesc}}</p>
+                    <div class="row">
+                        <div class="col">
+                            <a class="btn btn-primary" (click)="handleAddToCart(book)">Add to Cart</a>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-primary justify-content-end">Wishlist</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>
