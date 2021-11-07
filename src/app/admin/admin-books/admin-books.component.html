@@ -14,20 +14,37 @@
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                       <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active-link" href="/admin-books#add-new" data-toggle="tab">Add New</a>
+                        <a class="nav-link" routerLinkActive="active-link" routerLink="/admin-books/add" data-toggle="tab">Add New</a>
                       </li>
-                      <li class="nav-item">
+                      <!-- <li class="nav-item">
                         <a class="nav-link" routerLinkActive="active-link" href="/admin-books#enable-disable" data-toggle="tab">Enable/Disable</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active-link" href="/admin-books#view-all" data-toggle="tab">View All</a>
-                      </li>
+                        <a class="nav-link" routerLinkActive="active-link" href="/admin-books" data-toggle="tab">View All</a>
+                      </li> -->
                     </ul>
                   </div>
                 </div><!-- /.card-header -->
                 <div class="card-body">
-                  <div class="tab-content p-0">
-                    <!-- Morris chart - Sales -->
+                  <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">ISBN</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr routerLink='admin/book/{{book.BId}}' *ngFor="let book of bookList">
+                        <th scope="row">{{book.BId}}</th>
+                        <td>{{book.BTitle}}</td>
+                        <td>{{book.BISBN}}</td>
+                        <td>{{book.BPrice}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                  <!-- <div class="tab-content p-0">
                     <div class=" tab-pane"   id="add-new" style="position: relative; height: 300px;">
                      </div>
                     <div class="tab-pane" id="enable-disable" style="position: relative; height: 300px;">
@@ -50,7 +67,6 @@
                               </div>
                             </div>
                           </div>
-                          <!-- /.card-header -->
                           <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                               <thead>
@@ -94,12 +110,10 @@
                               </tbody>
                             </table>
                           </div>
-                          <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div><!-- /.card-body -->
               </div>
         </div><!-- /.container-fluid -->

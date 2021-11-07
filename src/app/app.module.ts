@@ -7,7 +7,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { BooksListingComponent } from './books/books-listing/books-listing.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BooksDetailsComponent } from './books/books-details/books-details.component';
 import { CartComponent } from './cart/cart.component';
 import { AdminComponent } from './admin/admin.component';
@@ -23,6 +23,7 @@ import { FeaturedComponent } from './books/featured/featured.component';
 import { NewComponent } from './books/new/new.component';
 import { SearchComponent } from './books/search/search.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { AddBookComponent } from './admin/admin-books/add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -44,12 +45,14 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     FeaturedComponent,
     NewComponent,
     SearchComponent,
-    FooterComponent
+    FooterComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
