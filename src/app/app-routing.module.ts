@@ -10,6 +10,9 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { BooksDetailsComponent } from './books/books-details/books-details.component';
 import { BooksListingComponent } from './books/books-listing/books-listing.component';
+import { FeaturedComponent } from './books/featured/featured.component';
+import { NewComponent } from './books/new/new.component';
+import { SearchComponent } from './books/search/search.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 
@@ -26,6 +29,9 @@ const routes: Routes = [
   { path: 'admin-categories', component:AdminCategoriesComponent },
   { path: 'admin-coupons', component:AdminCouponsComponent },
   { path: 'admin-password', component:AdminPasswordComponent },
+  { path: 'featured', component:FeaturedComponent },
+  { path: 'new', component:NewComponent },
+  { path: 'search', component:SearchComponent },
 
 
 ];

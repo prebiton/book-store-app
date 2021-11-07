@@ -19,6 +19,10 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminCouponsComponent } from './admin/admin-coupons/admin-coupons.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
 import { AdminPasswordComponent } from './admin/admin-password/admin-password.component';
+import { FeaturedComponent } from './books/featured/featured.component';
+import { NewComponent } from './books/new/new.component';
+import { SearchComponent } from './books/search/search.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { AdminPasswordComponent } from './admin/admin-password/admin-password.co
     AdminUsersComponent,
     AdminCouponsComponent,
     AdminCategoriesComponent,
-    AdminPasswordComponent
+    AdminPasswordComponent,
+    FeaturedComponent,
+    NewComponent,
+    SearchComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
