@@ -24,6 +24,13 @@ import { NewComponent } from './books/new/new.component';
 import { SearchComponent } from './books/search/search.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AddBookComponent } from './admin/admin-books/add-book/add-book.component';
+import { AddUserComponent } from './auth/components/add-user/add-user.component';
+import { SigninComponent } from './auth/components/signin/signin.component';
+import { SignoutComponent } from './auth/components/signout/signout.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { UsersComponent } from './users/users.component';
+import { UserService } from './auth/services/user.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -46,7 +53,13 @@ import { AddBookComponent } from './admin/admin-books/add-book/add-book.componen
     NewComponent,
     SearchComponent,
     FooterComponent,
-    AddBookComponent
+    AddBookComponent,
+    AddUserComponent,
+    SigninComponent,
+    SignoutComponent,
+    UsersComponent,
+    ForbiddenComponent,
+    SignoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +68,7 @@ import { AddBookComponent } from './admin/admin-books/add-book/add-book.componen
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService , AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,13 +9,19 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { AdminPasswordComponent } from './admin/admin-password/admin-password.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AddUserComponent } from './auth/components/add-user/add-user.component';
+import { SigninComponent } from './auth/components/signin/signin.component';
+import { SignoutComponent } from './auth/components/signout/signout.component';
 import { BooksDetailsComponent } from './books/books-details/books-details.component';
 import { BooksListingComponent } from './books/books-listing/books-listing.component';
 import { FeaturedComponent } from './books/featured/featured.component';
 import { NewComponent } from './books/new/new.component';
 import { SearchComponent } from './books/search/search.component';
 import { CartComponent } from './cart/cart.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, 
@@ -34,6 +40,12 @@ const routes: Routes = [
   { path: 'featured', component:FeaturedComponent },
   { path: 'new', component:NewComponent },
   { path: 'search', component:SearchComponent },
+  { path: 'signup', component: AddUserComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'signout', component: SignoutComponent },
+  { path: 'forbidden', component: ForbiddenComponent},//, canActivate:[AuthGuard] },
+  { path: 'users', component: UsersComponent , canActivate:[AuthGuard] },
+  // { path: 'adminpanel', component: AdminPanelComponent , canActivate:[AuthGuard] , data:{roles:['Admin']} },
 
 
 ];
