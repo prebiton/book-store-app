@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BookService } from 'src/app/books/services/book.service';
@@ -15,9 +16,11 @@ export class EditBookComponent implements OnInit {
   status: any;
   categoryList: any[] = []
   booksSubscription: Subscription | undefined = undefined;
+  imgName : any;
   isUpdated: boolean = false;
   updateReqSent: boolean = false;
   isDeleted: boolean = false;
+
 
   constructor( private bookService: BookService, private route: ActivatedRoute) { }
 
@@ -58,6 +61,8 @@ export class EditBookComponent implements OnInit {
   async handleUpdate(){
     console.log(this.duplicateBookData); // before sending to the service
     this.updateReqSent = true;
+    this.duplicateBookData.BImgPath = "../../../assets/images/" + this.imgName;
+    console.log(this.duplicateBookData.BImgPath);
     this.status = await this.bookService.updateBook(this.duplicateBookData);
     console.log(this.status);
 
@@ -69,6 +74,11 @@ export class EditBookComponent implements OnInit {
   handleDelete(){
     this.bookService.deleteBook(this.bookData);
     this.isDeleted = true;
+  }
+
+  handleUpload(event : any){
+    console.log(event.target.files[0].name);
+    this.imgName = event.target.files[0].name;
   }
 
 }

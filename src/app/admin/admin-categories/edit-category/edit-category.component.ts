@@ -17,6 +17,7 @@ export class EditCategoryComponent implements OnInit {
   status: any;
   categoryList: any[] = []
   booksSubscription: Subscription | undefined = undefined;
+  imgName : any;
   isUpdated: boolean = false;
   updateReqSent: boolean = false;
   isDeleted: boolean = false;
@@ -60,6 +61,8 @@ export class EditCategoryComponent implements OnInit {
   async handleUpdate(){
     console.log(this.duplicateCategoryData); // before sending to the service
     this.updateReqSent = true;
+    this.duplicateCategoryData.CatImgPath = "../../../assets/images/" + this.imgName;
+    console.log(this.duplicateCategoryData.CatImgPath)
     this.status = await this.bookService.updateCategory(this.duplicateCategoryData);
     console.log(this.status);
 
@@ -73,4 +76,8 @@ export class EditCategoryComponent implements OnInit {
     this.isDeleted = true;
   }
 
+  handleUpload(event : any){
+    console.log(event.target.files[0].name);
+    this.imgName = event.target.files[0].name;
+  }
 }

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-6" *ngFor="let bok of bookList">
-            <div class="product-grid">
+        <div class="col-md-3 col-sm-6" *ngFor="let bok of enabledBookList">
+            <div class="product-grid" >
                 <div class="product-image">
                     <a routerLink="/books/{{bok.BId}}" class="image">
                         <img class="pic-1" [src]="bok.BImgPath">
