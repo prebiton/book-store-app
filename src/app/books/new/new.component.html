@@ -7,24 +7,9 @@
 <div class="banner">
     <div class="container">
         <div class="l-container">
-            <div class="b-game-card">
+            <div class="b-game-card" *ngFor="let book of bookList.slice(0,4)">
                 <div class="b-game-card__cover"
-                    style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_1.jpg);">
-                </div>
-            </div>
-            <div class="b-game-card">
-                <div class="b-game-card__cover"
-                    style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_2.jpg);">
-                </div>
-            </div>
-            <div class="b-game-card">
-                <div class="b-game-card__cover"
-                    style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_3.jpg);">
-                </div>
-            </div>
-            <div class="b-game-card">
-                <div class="b-game-card__cover"
-                    style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_4.jpg);">
+                    style="background-image: url({{book.BImgPath}});" routerLink="/books/{{book.BId}}">
                 </div>
             </div>
         </div>
