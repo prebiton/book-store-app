@@ -11,6 +11,8 @@ export class BookService {
 
   private REST_API_URL = 'http://localhost:60494/api/book/'
   private catAPIURL = 'http://localhost:60494/api/category/'
+  private featuredURL = 'http://localhost:60494/api/book?ColName=BPosition'
+  private newURL = 'http://localhost:60494/api/book?ColName=BYear'
 
   constructor( private http: HttpClient) { }
 
@@ -144,6 +146,22 @@ export class BookService {
     .finally( () => {
       console.log('It is over!');
     });
+  }
+
+  getFeaturedBooks(): Observable<any[]> {
+    return this.http.get(this.featuredURL)
+        .pipe( map( (res: any) => {
+          console.log(res);
+          return res;
+        }));
+  }
+
+  getNewBooks(): Observable<any[]> {
+    return this.http.get(this.newURL)
+        .pipe( map( (res: any) => {
+          console.log(res);
+          return res;
+        }));
   }
 
 

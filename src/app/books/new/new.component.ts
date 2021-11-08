@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-new',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  bookList: any[] = [];
+  booksSubscription: Subscription | undefined = undefined;
+
+  constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
+    this.booksSubscription = this.bookService.getNewBooks()
+    .subscribe( (res: any) => {
+      console.log(res);
+      this.bookList = res;
+    });
   }
-
 }
