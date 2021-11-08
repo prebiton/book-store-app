@@ -34,12 +34,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { CouponboxComponent } from './home/couponbox/couponbox.component';
 import { FeatureboxComponent } from './home/featurebox/featurebox.component';
 import { LinkboxComponent } from './home/linkbox/linkbox.component';
-<<<<<<< HEAD
 import { EditBookComponent } from './admin/admin-books/edit-book/edit-book.component';
-=======
 import { CouponsComponent } from './coupons/coupons.component';
 import { HeadingsComponent } from './shared/headings/headings.component';
->>>>>>> 748226a6a85d69ff64c020deb8595bd94a30bcf2
 
 @NgModule({
   declarations: [
@@ -72,12 +69,9 @@ import { HeadingsComponent } from './shared/headings/headings.component';
     CouponboxComponent,
     FeatureboxComponent,
     LinkboxComponent,
-<<<<<<< HEAD
     EditBookComponent,
-=======
     CouponsComponent,
     HeadingsComponent,
->>>>>>> 748226a6a85d69ff64c020deb8595bd94a30bcf2
   ],
   imports: [
     BrowserModule,
