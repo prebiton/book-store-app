@@ -10,6 +10,8 @@ import { BookService } from 'src/app/books/services/book.service';
 })
 export class AddBookComponent implements OnInit {
   isSaved : boolean = false;
+  reqSent : boolean = false;
+  errorMessage : string = "";
 
   categoryList: any[] = []
   booksSubscription: Subscription | undefined = undefined;
@@ -61,8 +63,14 @@ export class AddBookComponent implements OnInit {
     this.bookService.createBook(this.addBookForm.value)
       .subscribe( (res: any) => { // 3. get the resp from the service
         console.log(res);
-        if(res && res.id){
+        console.log(res.id);
+        this.reqSent = true;
+        if(res && res.Succeeded==true){
           this.isSaved = true;
+        }
+
+        if(res.Succeeded==false){
+          this.errorMessage = res.Errors[0];
         }
       });
 
