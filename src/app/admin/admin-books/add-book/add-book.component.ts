@@ -11,7 +11,7 @@ import { BookService } from 'src/app/books/services/book.service';
 export class AddBookComponent implements OnInit {
   isSaved : boolean = false;
   reqSent : boolean = false;
-  errorMessage : string = "";
+  errorMessage : string = "Error";
 
   categoryList: any[] = []
   booksSubscription: Subscription | undefined = undefined;
@@ -63,15 +63,14 @@ export class AddBookComponent implements OnInit {
     this.bookService.createBook(this.addBookForm.value)
       .subscribe( (res: any) => { // 3. get the resp from the service
         console.log(res);
-        console.log(res.id);
+        console.log(res.BId);
         this.reqSent = true;
-        if(res && res.Succeeded==true){
+        console.log(this.isSaved);
+        if(res == "Success"){
           this.isSaved = true;
         }
+        console.log(this.isSaved);
 
-        if(res.Succeeded==false){
-          this.errorMessage = res.Errors[0];
-        }
       });
 
 

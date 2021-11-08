@@ -46,6 +46,41 @@ export class BookService {
       }));
   }
 
+
+
+  updateBook( updateableBookData: any): any {
+    console.log(updateableBookData); // before submitting to the REST API
+    return this.http.put(this.REST_API_URL + updateableBookData.BId, updateableBookData)
+      .toPromise()
+      .then( (res: any) => {
+        console.log(res);
+        return res;
+      })
+      .catch( (err: any) => {
+        console.log(err);
+        return err;
+      })
+      .finally( () => {
+        console.log('It is over!');
+      });
+  }
+
+  deleteBook( deleteableBookData: any): any{
+    return this.http.delete(this.REST_API_URL + deleteableBookData.BId, deleteableBookData)
+    .toPromise()
+    .then( (res: any) => {
+      console.log(res);
+      return res;
+    })
+    .catch( (err: any) => {
+      console.log(err);
+      return err;
+    })
+    .finally( () => {
+      console.log('It is over!');
+    });
+  }
+
   getCategories(): Observable<any[]> {
     return this.http.get(this.catAPIURL)
         .pipe( map( (res: any) => {

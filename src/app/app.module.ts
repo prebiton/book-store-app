@@ -34,6 +34,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { CouponboxComponent } from './home/couponbox/couponbox.component';
 import { FeatureboxComponent } from './home/featurebox/featurebox.component';
 import { LinkboxComponent } from './home/linkbox/linkbox.component';
+import { EditBookComponent } from './admin/admin-books/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { LinkboxComponent } from './home/linkbox/linkbox.component';
     CouponboxComponent,
     FeatureboxComponent,
     LinkboxComponent,
+    EditBookComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BookService } from '../services/book.service';
+import { BookService } from 'src/app/books/services/book.service';
 
 @Component({
-  selector: 'app-books-details',
-  templateUrl: './books-details.component.html',
-  styleUrls: ['./books-details.component.scss']
+  selector: 'app-edit-book',
+  templateUrl: './edit-book.component.html',
+  styleUrls: ['./edit-book.component.scss']
 })
-export class BooksDetailsComponent implements OnInit {
+export class EditBookComponent implements OnInit {
 
   bookData: any;
+  duplicateBookData: any;
+  status: any;
   categoryList: any[] = []
   booksSubscription: Subscription | undefined = undefined;
+  isUpdated: boolean = false;
+  updateReqSent: boolean = false;
+  isDeleted: boolean = false;
 
   constructor( private bookService: BookService, private route: ActivatedRoute) { }
 
@@ -24,13 +29,12 @@ export class BooksDetailsComponent implements OnInit {
         console.log(res);
         this.bookData = res
       })
-    await this.delay(20);  
+    await this.delay(50);  
     this.booksSubscription = this.bookService.getCategories()
       .subscribe( (res: any) => {
         console.log(res);
         this.categoryList = res
         for (var i = 0; i < this.categoryList.length; i++) {
-          console.log("hmm");
           if (this.bookData.BCatId == this.categoryList[i].CatId){
             this.bookData.BCat = this.categoryList[i].CatName
             console.log(this.bookData.BCat)
@@ -42,6 +46,29 @@ export class BooksDetailsComponent implements OnInit {
   }
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+  handleEditBookModalOpen(): void {
+    
+    this.duplicateBookData = { ...this.bookData };  // Shallow Copy
+    console.log(this.duplicateBookData);
+    this.isUpdated = false;
+  }
+
+  async handleUpdate(){
+    console.log(this.duplicateBookData); // before sending to the service
+    this.updateReqSent = true;
+    this.status = await this.bookService.updateBook(this.duplicateBookData);
+    console.log(this.status);
+
+    if(this.status == "Success"){
+      this.isUpdated = true;
+    }
+  }
+
+  handleDelete(){
+    this.bookService.deleteBook(this.bookData);
+    this.isDeleted = true;
   }
 
 }
