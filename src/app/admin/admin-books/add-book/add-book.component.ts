@@ -20,7 +20,7 @@ export class AddBookComponent implements OnInit {
     //name: new FormControl('Arun', Validators.required), // Step 5: Let's work on Validations
     //phone: new FormControl('123432', Validators.required), // For step 6 --- go to the HTML
     //email: new FormControl('a@b.com', [Validators.required, Validators.email]), // multiple validators can be used in an element
-    BCatId: new FormControl('',Validators.required),
+    BCatId: new FormControl('', Validators.required),
     BTitle: new FormControl('', Validators.required),
     BISBN: new FormControl('', Validators.required),
     BYear: new FormControl('', Validators.required),
@@ -61,7 +61,6 @@ export class AddBookComponent implements OnInit {
     this.bookService.createBook(this.addBookForm.value)
       .subscribe( (res: any) => { // 3. get the resp from the service
         console.log(res);
-
         if(res && res.id){
           this.isSaved = true;
         }

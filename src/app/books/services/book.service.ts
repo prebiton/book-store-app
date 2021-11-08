@@ -16,7 +16,7 @@ export class BookService {
 
   createBook( bookData: any ): any { // 1. get the form data from comp ts 
     console.log(bookData);
-
+    bookData.BImgPath = bookData.BImgPath.replace("C:\\fakepath\\", "../../../assets/images/");
     // 2. send the form data to the REST API 
     // 2.1 What's the REST API? https://jsonplaceholder.typicode.com/users/ 
     // 2.2 What's the HTTP Method? POST

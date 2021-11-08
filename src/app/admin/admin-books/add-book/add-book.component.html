@@ -120,8 +120,13 @@
                           <div class="form-group row mb-3">
                               <label for="staticName" class="col-sm-3 col-form-label">Status</label>
                               <div class="col-sm-9">
-                                  <input type="text" class="form-control" placeholder="Enter Status" formControlName="BStatus" [ngClass]="{ 'is-invalid': addBookForm.get('BStatus')?.touched && addBookForm.get('BStatus')?.invalid }"/>
-                                  <div class="invalid-feedback">
+                                  <!-- <input type="text" class="form-control" placeholder="Enter Status" formControlName="BStatus" [ngClass]="{ 'is-invalid': addBookForm.get('BStatus')?.touched && addBookForm.get('BStatus')?.invalid }"/> -->
+                                  <select class="form-select" id="exampleFormControlSelect1" formControlName="BStatus">
+                                    <option value="" disabled selected hidden>Choose Status</option>
+                                    <option value="1">Enabled</option>
+                                    <option value="0">Disabled</option>
+                                  </select>
+                                    <div class="invalid-feedback">
                                       <div>Status is required</div>
                                   </div>
                               </div>
@@ -130,7 +135,8 @@
                           <div class="form-group row mb-3">
                               <label for="staticName" class="col-sm-3 col-form-label">Image</label>
                               <div class="col-sm-9">
-                                  <input type="text" class="form-control" placeholder="Enter Image Path" formControlName="BImgPath" [ngClass]="{ 'is-invalid': addBookForm.get('BImgPath')?.touched && addBookForm.get('BImgPath')?.invalid }"/>
+                                  <!-- <input type="text" class="form-control" placeholder="Enter Image Path" formControlName="BImgPath" [ngClass]="{ 'is-invalid': addBookForm.get('BImgPath')?.touched && addBookForm.get('BImgPath')?.invalid }"/> -->
+                                  <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="BImgPath">
                                   <div class="invalid-feedback">
                                       <div>Image is required</div>
                                   </div>
