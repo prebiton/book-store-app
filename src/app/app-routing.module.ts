@@ -24,6 +24,10 @@ import { CouponsComponent } from './coupons/coupons.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
 import { TestuserComponent } from './testuser/testuser.component';
+import { UseraddressComponent } from './testuser/useraddress/useraddress.component';
+import { UserpasswordComponent } from './testuser/userpassword/userpassword.component';
+import { UserprofileComponent } from './testuser/userprofile/userprofile.component';
+import { ViewordersComponent } from './testuser/vieworders/vieworders.component';
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
@@ -52,7 +56,10 @@ const routes: Routes = [
   { path: 'forbidden', component: ForbiddenComponent},//, canActivate:[AuthGuard] },
   { path: 'users', component: UsersComponent , canActivate:[AuthGuard] },
   // { path: 'adminpanel', component: AdminPanelComponent , canActivate:[AuthGuard] , data:{roles:['Admin']} },
-  { path: 'testuser', component:TestuserComponent }, //update to user after integration 
+  { path: 'profile', component:UserprofileComponent }, //update to user after integration 
+  { path: 'address', component:UseraddressComponent }, //update to user after integration 
+  { path: 'orders', component:ViewordersComponent }, //update to user after integration 
+  { path: 'change-password', component:UserpasswordComponent }, //update to user after integration 
 
 ];
 

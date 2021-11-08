@@ -38,6 +38,10 @@ import { EditBookComponent } from './admin/admin-books/edit-book/edit-book.compo
 import { CouponsComponent } from './coupons/coupons.component';
 import { HeadingsComponent } from './shared/headings/headings.component';
 import { TestuserComponent } from './testuser/testuser.component';
+import { UserprofileComponent } from './testuser/userprofile/userprofile.component';
+import { UseraddressComponent } from './testuser/useraddress/useraddress.component';
+import { ViewordersComponent } from './testuser/vieworders/vieworders.component';
+import { UserpasswordComponent } from './testuser/userpassword/userpassword.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +78,10 @@ import { TestuserComponent } from './testuser/testuser.component';
     CouponsComponent,
     HeadingsComponent,
     TestuserComponent,
+    UserprofileComponent,
+    UseraddressComponent,
+    ViewordersComponent,
+    UserpasswordComponent,
   ],
   imports: [
     BrowserModule,
