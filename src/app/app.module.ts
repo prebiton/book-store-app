@@ -31,6 +31,8 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { UsersComponent } from './users/users.component';
 import { UserService } from './auth/services/user.service';
 import { AuthGuard } from './auth/auth.guard';
+import { CouponboxComponent } from './home/couponbox/couponbox.component';
+import { FeatureboxComponent } from './home/featurebox/featurebox.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { AuthGuard } from './auth/auth.guard';
     UsersComponent,
     ForbiddenComponent,
     SignoutComponent,
+    CouponboxComponent,
+    FeatureboxComponent,
   ],
   imports: [
     BrowserModule,
