@@ -34,6 +34,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { CouponboxComponent } from './home/couponbox/couponbox.component';
 import { FeatureboxComponent } from './home/featurebox/featurebox.component';
 import { LinkboxComponent } from './home/linkbox/linkbox.component';
+import { EditBookComponent } from './admin/admin-books/edit-book/edit-book.component';
 import { CouponsComponent } from './coupons/coupons.component';
 import { HeadingsComponent } from './shared/headings/headings.component';
 import { TestuserComponent } from './testuser/testuser.component';
@@ -69,6 +70,7 @@ import { TestuserComponent } from './testuser/testuser.component';
     CouponboxComponent,
     FeatureboxComponent,
     LinkboxComponent,
+    EditBookComponent,
     CouponsComponent,
     HeadingsComponent,
     TestuserComponent,

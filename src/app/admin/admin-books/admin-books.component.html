@@ -36,7 +36,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr routerLink='admin/book/{{book.BId}}' *ngFor="let book of bookList">
+                    <tr [routerLink]='book.BId' *ngFor="let book of bookList">
                         <th scope="row">{{book.BId}}</th>
                         <td>{{book.BTitle}}</td>
                         <td>{{book.BISBN}}</td>
