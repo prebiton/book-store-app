@@ -19,6 +19,7 @@ import { FeaturedComponent } from './books/featured/featured.component';
 import { NewComponent } from './books/new/new.component';
 import { SearchComponent } from './books/search/search.component';
 import { CartComponent } from './cart/cart.component';
+import { CouponsComponent } from './coupons/coupons.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'admin-password', component:AdminPasswordComponent },
   { path: 'featured', component:FeaturedComponent },
   { path: 'new', component:NewComponent },
+  { path: 'coupons', component:CouponsComponent },
   { path: 'search', component:SearchComponent },
   { path: 'signup', component: AddUserComponent },
   { path: 'signin', component: SigninComponent },
