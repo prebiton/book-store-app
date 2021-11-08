@@ -66,7 +66,7 @@ const routes: Routes = [
   { path: 'address', component:UseraddressComponent }, //update to user after integration 
   { path: 'orders', component:ViewordersComponent }, //update to user after integration 
   { path: 'change-password', component:UserpasswordComponent }, //update to user after integration 
-
+  { path: 'book-details', component:BooksDetailsComponent },
 ];
 
 @NgModule({
