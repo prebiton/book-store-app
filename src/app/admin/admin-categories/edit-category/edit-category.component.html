@@ -8,46 +8,37 @@
             <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">
-                    <i class="fas fa-book mr-1"></i>
-                    Books
+                    <i class="fas fa-list mr-1"></i>
+                    Categories
                   </h3>
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                       <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active-link" routerLink="/admin-books/add" data-toggle="tab">Add New</a>
+                        <a class="nav-link" routerLinkActive="active-link" routerLink="/admin-categories/add" data-toggle="tab">Add New</a>
                       </li>
-                      <!-- <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active-link" href="/admin-books#enable-disable" data-toggle="tab">Enable/Disable</a>
-                      </li> -->
                       <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active-link" href="/admin-books" data-toggle="tab">View All</a>
+                        <a class="nav-link" routerLinkActive="active-link" href="/admin-categories" data-toggle="tab">View All</a>
                       </li>
                     </ul>
                   </div>
                 </div><!-- /.card-header -->
                 <div class="card-body">
-                    <div class="card" *ngIf="bookData">
+                    <div class="card" *ngIf="categoryData">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img class="img-fluid" [src]="bookData.BImgPath" alt="">
+                                <img class="img-fluid" [src]="categoryData.CatImgPath" alt="">
                 
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                <h1 class="card-title">{{bookData.BTitle}}</h1>
+                                <h1 class="card-title">{{categoryData.CatName}}</h1>
                                 <br><br>
-                                <p class="card-text">{{bookData.BDesc}}</p>
-                                <p class="card-text">{{bookData.BCatName}}</p>
-                                <p class="card-text">Count : {{bookData.BCount}}</p>
-                                <p class="card-text">ISBN : {{bookData.BISBN}}</p>
-                                <p class="card-text">Position : {{bookData.BPosition}}</p>
-                                <p class="card-text">Price : {{bookData.BPrice}}</p>
-                                <p class="card-text">Status : {{bookData.BStatus}}</p>
-                                <p class="card-text">Created at : {{bookData.BYear}}</p>
+                                <p class="card-text">{{categoryData.CatDesc}}</p>
+                                <p class="card-text">Status : {{categoryData.CatStatus}}</p>
                                 <div class="alert alert-warning" *ngIf="isDeleted">
                                     Deleted successfully!
                                     </div>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editBookModal" (click)="handleEditBookModalOpen()">Edit</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editBookModal" (click)="handleEditCategoryModalOpen()">Edit</button>
                                 <button type="button" class="btn btn-danger ml-3" (click)="handleDelete()">Delete</button>
 
 
@@ -57,49 +48,32 @@
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Edit Book</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body" *ngIf="duplicateBookData">
+                                    <div class="modal-body" *ngIf="duplicateCategoryData">
                                     <form ngNativeValidate (ngSubmit)="handleUpdate()">
                                         <div class="form-group row mb-3">
-                                            <label for="staticEmail" class="col-sm-3 col-form-label">Title</label>
+                                            <label for="staticName" class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="Enter modal-title" name="title"
-                                                [(ngModel)]="duplicateBookData.BTitle" required>
+                                                <input type="text" class="form-control" placeholder="Enter modal-title" name="name"
+                                                [(ngModel)]="duplicateCategoryData.CatName" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-3">
                                             <label for="staticEmail" class="col-sm-3 col-form-label">Description</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" placeholder="Enter Description" name="desc"
-                                                [(ngModel)]="duplicateBookData.BDesc" required>
+                                                [(ngModel)]="duplicateCategoryData.CatDesc" required>
                                             </div>
                                         </div>
-                                        <div class="form-group row mb-3">
-                                            <label for="staticEmail" class="col-sm-3 col-form-label">Category</label>
-                                            <div class="col-sm-9">
-                                                <!-- <input type="text" class="form-control" placeholder="Enter Description" name="category"
-                                                [(ngModel)]="duplicateBookData.BDesc" required> -->
-                                                <select class="form-select" id="exampleFormControlSelect1"  name="category" [(ngModel)]="duplicateBookData.BCatId">
-                                                    <option value="" disabled selected hidden>Choose Category</option>
-                                                    <option [value]="category.CatId" *ngFor="let category of categoryList">{{category.CatName}}</option>
-                                                  </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mb-3">
-                                            <label for="staticEmail" class="col-sm-3 col-form-label">ISBN</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" placeholder="Enter ISBN" name="isbn"
-                                                [(ngModel)]="duplicateBookData.BISBN" required>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group row mb-3">
                                             <label for="staticName" class="col-sm-3 col-form-label">Status</label>
                                             <div class="col-sm-9">
                                                 <!-- <input type="text" class="form-control" name="email"
                                                 placeholder="Enter Email" [(ngModel)]="duplicateBookData.BStatus" required> -->
-                                                <select name="status" class="form-select" id="exampleFormControlSelect1" [(ngModel)]="duplicateBookData.BStatus">
+                                                <select name="status" class="form-select" id="exampleFormControlSelect1" [(ngModel)]="duplicateCategoryData.CatStatus">
                                                     <option value="" disabled selected hidden>Choose Status</option>
                                                     <option value="1">Enabled</option>
                                                     <option value="0">Disabled</option>
@@ -111,35 +85,7 @@
                                             <div class="col-sm-9">
                                                 <!-- <input type="text" class="form-control" name="image"
                                                 placeholder="Enter Email" [(ngModel)]="duplicateBookData.BImgPath" required> -->
-                                                <input type="file" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="duplicateBookData.BImgPath">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mb-3">
-                                            <label for="staticdate" class="col-sm-3 col-form-label">Year</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="year"
-                                                placeholder="Enter Email" [(ngModel)]="duplicateBookData.BYear" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mb-3">
-                                            <label for="staticdate" class="col-sm-3 col-form-label">Position</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="position"
-                                                placeholder="Enter Positon" [(ngModel)]="duplicateBookData.BPosition" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mb-3">
-                                            <label for="staticdate" class="col-sm-3 col-form-label">Count</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="count"
-                                                placeholder="Enter Count" [(ngModel)]="duplicateBookData.BCount" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mb-3">
-                                            <label for="staticdate" class="col-sm-3 col-form-label">Price</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="price"
-                                                placeholder="Enter Email" [(ngModel)]="duplicateBookData.BPrice" required>
+                                                <input type="file" class="form-control-file" id="exampleFormControlFile1" [(ngModel)]="duplicateCategoryData.CatImgPath" name="image">
                                             </div>
                                         </div>
 

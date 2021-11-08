@@ -4,7 +4,9 @@ import { AddBookComponent } from './admin/admin-books/add-book/add-book.componen
 
 import { AdminBooksComponent } from './admin/admin-books/admin-books.component';
 import { EditBookComponent } from './admin/admin-books/edit-book/edit-book.component';
+import { AddCategoryComponent } from './admin/admin-categories/add-category/add-category.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
+import { EditCategoryComponent } from './admin/admin-categories/edit-category/edit-category.component';
 import { AdminCouponsComponent } from './admin/admin-coupons/admin-coupons.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AdminPasswordComponent } from './admin/admin-password/admin-password.component';
@@ -39,6 +41,8 @@ const routes: Routes = [
   { path: 'admin-books/:id', component: EditBookComponent},
   { path: 'admin-users', component:AdminUsersComponent },
   { path: 'admin-categories', component:AdminCategoriesComponent },
+  { path: 'admin-categories/add', component:AddCategoryComponent },
+  { path: 'admin-categories/:id', component:EditCategoryComponent },
   { path: 'admin-coupons', component:AdminCouponsComponent },
   { path: 'admin-password', component:AdminPasswordComponent },
   { path: 'featured', component:FeaturedComponent },

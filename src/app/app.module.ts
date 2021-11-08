@@ -37,6 +37,8 @@ import { LinkboxComponent } from './home/linkbox/linkbox.component';
 import { EditBookComponent } from './admin/admin-books/edit-book/edit-book.component';
 import { CouponsComponent } from './coupons/coupons.component';
 import { HeadingsComponent } from './shared/headings/headings.component';
+import { AddCategoryComponent } from './admin/admin-categories/add-category/add-category.component';
+import { EditCategoryComponent } from './admin/admin-categories/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { HeadingsComponent } from './shared/headings/headings.component';
     EditBookComponent,
     CouponsComponent,
     HeadingsComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
   ],
   imports: [
     BrowserModule,
