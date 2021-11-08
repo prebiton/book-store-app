@@ -36,6 +36,7 @@ import { FeatureboxComponent } from './home/featurebox/featurebox.component';
 import { LinkboxComponent } from './home/linkbox/linkbox.component';
 import { CouponsComponent } from './coupons/coupons.component';
 import { HeadingsComponent } from './shared/headings/headings.component';
+import { TestuserComponent } from './testuser/testuser.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { HeadingsComponent } from './shared/headings/headings.component';
     LinkboxComponent,
     CouponsComponent,
     HeadingsComponent,
+    TestuserComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ import { CartComponent } from './cart/cart.component';
 import { CouponsComponent } from './coupons/coupons.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
+import { TestuserComponent } from './testuser/testuser.component';
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
@@ -49,7 +50,7 @@ const routes: Routes = [
   { path: 'forbidden', component: ForbiddenComponent},//, canActivate:[AuthGuard] },
   { path: 'users', component: UsersComponent , canActivate:[AuthGuard] },
   // { path: 'adminpanel', component: AdminPanelComponent , canActivate:[AuthGuard] , data:{roles:['Admin']} },
-
+  { path: 'testuser', component:TestuserComponent }, //update to user after integration 
 
 ];
 
