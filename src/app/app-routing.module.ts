@@ -25,6 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
+  { path: 'home', component: HomeComponent }, 
   { path: '', component: HomeComponent }, 
   { path: 'books', component: BooksListingComponent },
   { path: 'books/:id', component: BooksDetailsComponent },
