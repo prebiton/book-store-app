@@ -39,6 +39,11 @@ import { CouponsComponent } from './coupons/coupons.component';
 import { HeadingsComponent } from './shared/headings/headings.component';
 import { AddCategoryComponent } from './admin/admin-categories/add-category/add-category.component';
 import { EditCategoryComponent } from './admin/admin-categories/edit-category/edit-category.component';
+import { TestuserComponent } from './testuser/testuser.component';
+import { UserprofileComponent } from './testuser/userprofile/userprofile.component';
+import { UseraddressComponent } from './testuser/useraddress/useraddress.component';
+import { ViewordersComponent } from './testuser/vieworders/vieworders.component';
+import { UserpasswordComponent } from './testuser/userpassword/userpassword.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +81,11 @@ import { EditCategoryComponent } from './admin/admin-categories/edit-category/ed
     HeadingsComponent,
     AddCategoryComponent,
     EditCategoryComponent,
+    TestuserComponent,
+    UserprofileComponent,
+    UseraddressComponent,
+    ViewordersComponent,
+    UserpasswordComponent,
   ],
   imports: [
     BrowserModule,
