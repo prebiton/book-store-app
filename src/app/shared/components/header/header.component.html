@@ -1,6 +1,6 @@
 <head>
 
-  <title>Home v13 | Bookworm</title>
+  <title>Bookworm</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -59,7 +59,7 @@
         </div>
         <div class="col-auto col-md-auto col-lg-2">
           <div class="site-branding text-center">
-            <a href="index.html" class="d-block mb-1">
+            <a routerLink="index.html" class="d-block mb-1">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170px"
                 height="30px">
                 <path fill-rule="evenodd" fill="rgb(25, 17, 11)"
@@ -75,22 +75,27 @@
         <div class="col-auto col-md col-lg-5 position-static">
           <ul class="nav justify-content-end">
             <li class="nav-item">
-              <a routerLink="/admin-dashboard" class="nav-link">
+              <a routerLink="/home" class="nav-link">
                 <i class="nav-icon fas fa-home"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a routerLink="/admin-dashboard" class="nav-link">
+              <a routerLink="/books" class="nav-link">
+                <i style="color:darkorange;" class="nav-icon fas fa-book"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/wishlist" class="nav-link">
                 <i style="color:red;" class="nav-icon fas fa-heart"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a routerLink="/admin-dashboard" class="nav-link">
+              <a routerLink="/cart" class="nav-link">
                 <i style="color:#5628EE;" class="nav-icon fas fa-shopping-cart"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a routerLink="/admin-dashboard" class="nav-link">
+              <a routerLink="/user" class="nav-link">
                 <i style="color: #32a7e2;" class="nav-icon fas fa-user"></i>
               </a>
             </li>
