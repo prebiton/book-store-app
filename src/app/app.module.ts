@@ -44,6 +44,7 @@ import { UserprofileComponent } from './testuser/userprofile/userprofile.compone
 import { UseraddressComponent } from './testuser/useraddress/useraddress.component';
 import { ViewordersComponent } from './testuser/vieworders/vieworders.component';
 import { UserpasswordComponent } from './testuser/userpassword/userpassword.component';
+import { AddCouponComponent } from './admin/admin-coupons/add-coupon/add-coupon.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { UserpasswordComponent } from './testuser/userpassword/userpassword.comp
     UseraddressComponent,
     ViewordersComponent,
     UserpasswordComponent,
+    AddCouponComponent,
   ],
   imports: [
     BrowserModule,
