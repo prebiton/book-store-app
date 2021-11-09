@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css">
 </head>
 
-<aside style="position: fixed;" class="main-sidebar  sidebar-dark-primary elevation-4">
+<aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a routerLink="#" class="brand-link">
         <img src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
@@ -95,7 +95,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a routerLink="/" class="nav-link">
+                    <a (click)="logOut()" routerLink="/" class="nav-link">
                         <i class="nav-icon fas fa-lock"></i>
                         <p>
                             Sign Out
