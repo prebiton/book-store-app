@@ -45,6 +45,8 @@ import { UseraddressComponent } from './testuser/useraddress/useraddress.compone
 import { ViewordersComponent } from './testuser/vieworders/vieworders.component';
 import { UserpasswordComponent } from './testuser/userpassword/userpassword.component';
 import { AddCouponComponent } from './admin/admin-coupons/add-coupon/add-coupon.component';
+import { NewcartComponent } from './newcart/newcart.component';
+import { OrderinvoiceComponent } from './orderinvoice/orderinvoice.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,8 @@ import { AddCouponComponent } from './admin/admin-coupons/add-coupon/add-coupon.
     ViewordersComponent,
     UserpasswordComponent,
     AddCouponComponent,
+    NewcartComponent,
+    OrderinvoiceComponent,
   ],
   imports: [
     BrowserModule,

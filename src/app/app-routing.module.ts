@@ -26,6 +26,8 @@ import { CartComponent } from './cart/cart.component';
 import { CouponsComponent } from './coupons/coupons.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
+import { NewcartComponent } from './newcart/newcart.component';
+import { OrderinvoiceComponent } from './orderinvoice/orderinvoice.component';
 import { TestuserComponent } from './testuser/testuser.component';
 import { UseraddressComponent } from './testuser/useraddress/useraddress.component';
 import { UserpasswordComponent } from './testuser/userpassword/userpassword.component';
@@ -67,6 +69,8 @@ const routes: Routes = [
   { path: 'orders', component:ViewordersComponent }, //update to user after integration 
   { path: 'change-password', component:UserpasswordComponent }, //update to user after integration 
   { path: 'book-details', component:BooksDetailsComponent },
+  { path: 'order-invoice', component:OrderinvoiceComponent },
+  { path: 'ncart', component:NewcartComponent },
 ];
 
 @NgModule({
