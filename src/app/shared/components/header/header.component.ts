@@ -12,4 +12,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  pageRedirect(){
+    if(localStorage.getItem('userRole')=="Admin"){
+      return "/admin-dashboard";
+    }else{
+      return '/users';
+    }
+  }
+
 }

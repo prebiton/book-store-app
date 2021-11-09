@@ -37,8 +37,13 @@ export class SigninComponent implements OnInit {
     this.userService.userAuthentication(this.addUserForm.value).subscribe((data : any)=>{
      localStorage.setItem('userToken',data.access_token);
      localStorage.setItem('userName' , this.addUserForm.value.UName)  
-     localStorage.setItem('userRole' , data.role.split('"')[1])      
-     this.router.navigate(['/users']);
+     localStorage.setItem('userRole' , data.role.split('"')[1])   
+     if(localStorage.getItem('userRole') == 'Admin'){
+       this.router.navigate(['/admin-dashboard'])
+     }else{
+      this.router.navigate(['/users']);
+     }
+     
    },
    (err : HttpErrorResponse)=>{
     this.reqSent = true;
