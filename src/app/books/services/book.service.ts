@@ -14,6 +14,7 @@ export class BookService {
   private featuredURL = 'http://localhost:60494/api/book?ColName=BPosition'
   private newURL = 'http://localhost:60494/api/book?ColName=BYear'
   private discountURL = 'http://localhost:60494/api/discount/'
+  private userURL = 'http://localhost:60494/api/users/'
 
   constructor( private http: HttpClient) { }
 
@@ -79,6 +80,14 @@ export class BookService {
 
   getDiscounts(): Observable<any[]> {
     return this.http.get(this.discountURL)
+        .pipe( map( (res: any) => {
+          console.log(res);
+          return res;
+        }));
+  }
+
+  getUsers(): Observable<any[]> {
+    return this.http.get(this.userURL)
         .pipe( map( (res: any) => {
           console.log(res);
           return res;

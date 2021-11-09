@@ -54,8 +54,10 @@
                     <input type="radio" name="colors-btn" id="color-1" checked>
                     <div class="shoe-area col-md-5">
                         <div class="floating-div">
+                        <!-- <div> -->
                             <div class="shoe-1">
-                                <img src="https://github.com/gerrardNwoke/Prdouct-Card/blob/main/Shoe-product-card/imgs/red-nike.png?raw=true"
+                            <!-- <div> -->
+                                <img [src]="bookData.BImgPath"
                                     alt="red-nike">
                             </div>
                         </div>
@@ -65,12 +67,12 @@
                     <div class="col-md-10">
 
                         <div class="">
-                            <span style="color: #565959!important;font-size: 18px; line-height: 1.5; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Héctor García</span>
-                            <span style="display: block;color: #111;font-size: 24px;line-height: 1.33;margin-bottom: 12px;overflow: hidden;max-height: 4em;">Ikigai: The Japanese secret to a long and happy life</span>
+                            <span style="color: #565959!important;font-size: 18px; line-height: 1.5; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{bookData.BDesc}}</span>
+                            <span style="display: block;color: #111;font-size: 24px;line-height: 1.33;margin-bottom: 12px;overflow: hidden;max-height: 4em;">{{bookData.BTitle}}</span>
                             <div>
                                 <div>
 
-                                    <div class="Stars" style="--rating: 2.6;"></div>
+                                    <div class="Stars" style="--rating: 3.5;"></div>
                                     <span style="font-size: 10px!important; color: #565959!important;">24,429</span>
                                 </div>
                             </div>
@@ -78,7 +80,7 @@
                             <div class="col-md-10 text-gray-400" style=" line-height: 1.5; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; margin-bottom: 12px;max-height: 4em;">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
  
                             <div style="width:250px" class="card-body">
-                                <span style="font-size: 35px;  font-weight: bolder; align-items: center; color: #111 !important;">₹414.00</span>
+                                <span style="font-size: 35px;  font-weight: bolder; align-items: center; color: #111 !important;">₹{{bookData.BPrice}}</span>
                             </div>
                             <a routerLink="/addtocart" style="font-weight: bolder; width:250px" class="banner_btn btn btn-wide btn-primary text-white">ADD TO CART <i class="fas fa-shopping-cart"></i></a>
                             <div style="padding-bottom: 1rem !important;" class="space-bottom-1"></div>
