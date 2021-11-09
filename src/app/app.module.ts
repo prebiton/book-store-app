@@ -47,6 +47,7 @@ import { UserpasswordComponent } from './testuser/userpassword/userpassword.comp
 import { AddCouponComponent } from './admin/admin-coupons/add-coupon/add-coupon.component';
 import { NewcartComponent } from './newcart/newcart.component';
 import { OrderinvoiceComponent } from './orderinvoice/orderinvoice.component';
+import { MakeRatingComponent } from './make-rating/make-rating.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { OrderinvoiceComponent } from './orderinvoice/orderinvoice.component';
     AddCouponComponent,
     NewcartComponent,
     OrderinvoiceComponent,
+    MakeRatingComponent,
   ],
   imports: [
     BrowserModule,
