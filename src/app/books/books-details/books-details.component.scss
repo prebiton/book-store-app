@@ -605,21 +605,36 @@ input{
   
   
   
-  // ----
-  // Page setup
-  // ----
-  html { box-sizing: border-box; font-size: 87.5%; height: 100%; }
-  *, *::before, *::after { box-sizing: inherit; }
-  body { 
-    font-family: 'Open Sans', sans-serif;
-    height: 100%;
-  }
-  p { margin-top: 0; }
-  @for $i from 1 through 6 {
-    h#{$i} { 
-      font-weight: 700;
-      margin-top: 0; 
+
+  .Stars {
+    --percent: calc(var(--rating) / 5 * 100%);
+    
+    display: inline-block;
+    font-size: 30px;
+    font-family: Times; // make sure ★ appears correctly
+    line-height: 1;
+    
+    &::before {
+      content: '★★★★★';
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #fff200 var(--percent), #FFF20050 var(--percent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+  }
+  
+  // Just to make a preview more beautifull
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  * {
+    position: relative;
+    box-sizing: border-box;
   }
   
   
