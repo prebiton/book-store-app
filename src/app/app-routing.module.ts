@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent }, 
   { path: 'books', component: BooksListingComponent },
   { path: 'books/:id', component: BooksDetailsComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate:[AuthGuard] },
   { path: 'admin', component:DashboardComponent, canActivate:[AuthGuard] , data:{roles:['Admin']}},
   { path: 'admin-dashboard', component:DashboardComponent, canActivate:[AuthGuard] , data:{roles:['Admin']} },
   { path: 'admin-orders', component:AdminOrdersComponent, canActivate:[AuthGuard] , data:{roles:['Admin']} },
@@ -62,7 +62,7 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'signout', component: SignoutComponent },
   { path: 'forbidden', component: ForbiddenComponent},//, canActivate:[AuthGuard] },
-  { path: 'users', component: UsersComponent , canActivate:[AuthGuard] },
+  { path: 'users', component: UserprofileComponent , canActivate:[AuthGuard] },
   // { path: 'adminpanel', component: AdminPanelComponent , canActivate:[AuthGuard] , data:{roles:['Admin']} },
   { path: 'profile', component:UserprofileComponent }, //update to user after integration 
   { path: 'address', component:UseraddressComponent }, //update to user after integration 

@@ -9,7 +9,7 @@
                         <img class="pic-2" [src]="bok.BImgPath">
                     </a>
                     <ul class="product-links">
-                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        <li><a (click)=handleAddToCart(bok)><i class="fa fa-shopping-cart"></i></a></li>
                         <li><a href="#"><i class="far fa-heart"></i></a></li>
                     </ul>
                 </div>
