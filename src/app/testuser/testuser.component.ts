@@ -12,6 +12,9 @@ export class TestuserComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
+  
+  logOut(){
+    localStorage.clear();
+  }
 }
 

@@ -15,6 +15,7 @@ export class BookService {
   private newURL = 'http://localhost:60494/api/book?ColName=BYear'
   private discountURL = 'http://localhost:60494/api/discount/'
   private userURL = 'http://localhost:60494/api/users/'
+  private cartURL = 'http://localhost:60494/api/cart/'
 
   constructor( private http: HttpClient) { }
 
@@ -62,6 +63,20 @@ export class BookService {
       }));
   }
 
+  createCart( cartData: any ): any { // 1. get the form data from comp ts 
+    console.log(cartData);
+    // 2. send the form data to the REST API 
+    // 2.1 What's the REST API? https://jsonplaceholder.typicode.com/users/ 
+    // 2.2 What's the HTTP Method? POST
+    // 2.3 What's the REST API Client? HttpClient
+    return this.http.post(this.cartURL, cartData)
+      .pipe( map( (res: any) => { // 3. get the resp from the REST API
+        console.log(res);
+        // 4. send the resp to the comp ts
+        return res;
+      }));
+  }
+
   getBooks(): Observable<any[]> {
     return this.http.get(this.REST_API_URL)
         .pipe( map( (res: any) => {
@@ -88,6 +103,14 @@ export class BookService {
 
   getUsers(): Observable<any[]> {
     return this.http.get(this.userURL)
+        .pipe( map( (res: any) => {
+          console.log(res);
+          return res;
+        }));
+  }
+
+  getCart(): Observable<any[]> {
+    return this.http.get(this.cartURL)
         .pipe( map( (res: any) => {
           console.log(res);
           return res;
@@ -160,6 +183,23 @@ export class BookService {
   updateDiscount( updateableDiscountData: any): any {
     console.log(updateableDiscountData); // before submitting to the REST API
     return this.http.put(this.discountURL + updateableDiscountData.DId, updateableDiscountData)
+      .toPromise()
+      .then( (res: any) => {
+        console.log(res);
+        return res;
+      })
+      .catch( (err: any) => {
+        console.log(err);
+        return err;
+      })
+      .finally( () => {
+        console.log('It is over!');
+      });
+  }
+
+  updateCart( updateableCartData: any): any {
+    console.log(updateableCartData); // before submitting to the REST API
+    return this.http.put(this.cartURL + updateableCartData.cartTempId, updateableCartData)
       .toPromise()
       .then( (res: any) => {
         console.log(res);
