@@ -13,6 +13,7 @@ export class BookService {
   private catAPIURL = 'http://localhost:60494/api/category/'
   private featuredURL = 'http://localhost:60494/api/book?ColName=BPosition'
   private newURL = 'http://localhost:60494/api/book?ColName=BYear'
+  private discountURL = 'http://localhost:60494/api/discount/'
 
   constructor( private http: HttpClient) { }
 
@@ -46,6 +47,20 @@ export class BookService {
       }));
   }
 
+  createDiscount( discountData: any ): any { // 1. get the form data from comp ts 
+    console.log(discountData);
+    // 2. send the form data to the REST API 
+    // 2.1 What's the REST API? https://jsonplaceholder.typicode.com/users/ 
+    // 2.2 What's the HTTP Method? POST
+    // 2.3 What's the REST API Client? HttpClient
+    return this.http.post(this.discountURL, discountData)
+      .pipe( map( (res: any) => { // 3. get the resp from the REST API
+        console.log(res);
+        // 4. send the resp to the comp ts
+        return res;
+      }));
+  }
+
   getBooks(): Observable<any[]> {
     return this.http.get(this.REST_API_URL)
         .pipe( map( (res: any) => {
@@ -56,6 +71,14 @@ export class BookService {
 
   getCategories(): Observable<any[]> {
     return this.http.get(this.catAPIURL)
+        .pipe( map( (res: any) => {
+          console.log(res);
+          return res;
+        }));
+  }
+
+  getDiscounts(): Observable<any[]> {
+    return this.http.get(this.discountURL)
         .pipe( map( (res: any) => {
           console.log(res);
           return res;
@@ -73,6 +96,15 @@ export class BookService {
 
   getCategoryById( id: string | null ): any { 
     let APIUrl = this.catAPIURL + id; 
+
+    return this.http.get(APIUrl)
+      .pipe(map( (res: any) => {
+        return res;
+      }));
+  }
+
+  getDiscountById( id: string | null ): any { 
+    let APIUrl = this.discountURL + id; 
 
     return this.http.get(APIUrl)
       .pipe(map( (res: any) => {
@@ -116,6 +148,23 @@ export class BookService {
       });
   }
 
+  updateDiscount( updateableDiscountData: any): any {
+    console.log(updateableDiscountData); // before submitting to the REST API
+    return this.http.put(this.discountURL + updateableDiscountData.DId, updateableDiscountData)
+      .toPromise()
+      .then( (res: any) => {
+        console.log(res);
+        return res;
+      })
+      .catch( (err: any) => {
+        console.log(err);
+        return err;
+      })
+      .finally( () => {
+        console.log('It is over!');
+      });
+  }
+
   deleteBook( deleteableBookData: any): any{
     return this.http.delete(this.REST_API_URL + deleteableBookData.BId, deleteableBookData)
     .toPromise()
@@ -134,6 +183,22 @@ export class BookService {
 
   deleteCategory( deleteableCategoryData: any): any{
     return this.http.delete(this.catAPIURL + deleteableCategoryData.CatId, deleteableCategoryData)
+    .toPromise()
+    .then( (res: any) => {
+      console.log(res);
+      return res;
+    })
+    .catch( (err: any) => {
+      console.log(err);
+      return err;
+    })
+    .finally( () => {
+      console.log('It is over!');
+    });
+  }
+
+  deleteDiscount( deleteableDiscountData: any): any{
+    return this.http.delete(this.discountURL + deleteableDiscountData.DId, deleteableDiscountData)
     .toPromise()
     .then( (res: any) => {
       console.log(res);
