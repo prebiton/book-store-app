@@ -50,8 +50,11 @@ export class CartComponent implements OnInit {
         this.personalCartItemList.push(this.cartItemList[i]);
       }
     }
+    console.log(this.personalCartItemList);
     
   }
+
+
 
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
@@ -61,7 +64,8 @@ export class CartComponent implements OnInit {
   handleRemoveFromCart(pdt: any): void {
     console.log(pdt);
     console.log("handleRemoveFromCart")
-    this.cartDataService.removeFromCart(pdt);
+    this.bookService.deleteCart(pdt);
   }
+
 
 }
