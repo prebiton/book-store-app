@@ -36,7 +36,7 @@ export class BooksListingComponent implements OnInit {
         console.log(res);
         this.userList = res
       })
-      await this.delay(50); 
+      await this.delay(200); 
       for(var i = 0; i < this.userList.length; i++){
         console.log(this.userList[i].UName)
         if (this.username == this.userList[i].UName){

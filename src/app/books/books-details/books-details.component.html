@@ -82,7 +82,7 @@
                             <div style="width:250px" class="card-body">
                                 <span style="font-size: 35px;  font-weight: bolder; align-items: center; color: #111 !important;">₹{{bookData.BPrice}}</span>
                             </div>
-                            <a routerLink="/addtocart" style="font-weight: bolder; width:250px" class="banner_btn btn btn-wide btn-primary text-white">ADD TO CART <i class="fas fa-shopping-cart"></i></a>
+                            <a (click)=handleAddToCart(bookData) style="font-weight: bolder; width:250px" class="banner_btn btn btn-wide btn-primary text-white">ADD TO CART <i class="fas fa-shopping-cart"></i></a>
                             <div style="padding-bottom: 1rem !important;" class="space-bottom-1"></div>
                             <a routerLink="/addtowishllist" style="border:none; background-color: lightgray; color:red!important; font-weight: bolder; width:250px" class="banner_btn btn btn-wide btn-primary text-white">   WISHLIST  <i style="color: red;" class="fas fa-heart"></i></a>
 

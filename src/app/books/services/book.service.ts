@@ -262,6 +262,22 @@ export class BookService {
     });
   }
 
+  deleteCart( deleteableCartData: any): any{
+    return this.http.delete(this.cartURL + deleteableCartData.UserId + "?bid=" + deleteableCartData.BId, deleteableCartData)
+    .toPromise()
+    .then( (res: any) => {
+      console.log(res);
+      return res;
+    })
+    .catch( (err: any) => {
+      console.log(err);
+      return err;
+    })
+    .finally( () => {
+      console.log('It is over!');
+    });
+  }
+
   getFeaturedBooks(): Observable<any[]> {
     return this.http.get(this.featuredURL)
         .pipe( map( (res: any) => {
