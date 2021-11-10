@@ -3,7 +3,7 @@
 <div class="container mt-5">
     <div class="l-container">
         <div class="col" *ngFor="let book of enabledBookList">
-            <div class="b-game-card row" routerLink="/books/{{book.BId}">
+            <div class="b-game-card row" routerLink="/books/{{book.BId}}">
                 <div class="b-game-card__cover"
                     style="background-image: url({{book.BImgPath}});">
                 </div>
@@ -15,8 +15,8 @@
                     <span style="font-size: 10px!important; color: #565959!important;">24,429</span>
                 </div>
             </div>
-            <div class="row container" style="display: flex;justify-content: center;align-items: center;">
-                <div class="col-md-6">
+            <div class="row container" style="display: flex;align-items: center;">
+                <div class="col-md-8">
                     <div class="card-body">
                         <span style="font-size: 25px;  font-weight: bolder; color:black !important;">₹{{book.BPrice}}</span>
                     </div>
@@ -24,7 +24,7 @@
                 <div class="col-md-2">
                     <i style="color:red;" class="nav-icon fas fa-heart fa-lg"></i>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <i style="color:gray;" class="nav-icon fas fa-shopping-cart fa-lg"></i>
                 </div>
             </div>
