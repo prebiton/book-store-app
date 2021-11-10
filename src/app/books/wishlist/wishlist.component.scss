@@ -127,7 +127,7 @@ body {
 
 .l-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 30px;
   width: 100%;
   max-width: 1200px;
@@ -217,7 +217,8 @@ body {
   
 }
 
- 
+
+
 
 .Stars {
     --percent: calc(var(--rating) / 5 * 100%);
@@ -235,3 +236,90 @@ body {
       -webkit-text-fill-color: transparent;
     }
   }
+
+/*----------------------------------------------------------------css hover bottons---------------------------------------------- */
+
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  ul li {
+    list-style: none;
+    margin: 0 15px;
+  }
+  
+  ul li a {
+    position: relative; 
+    display: block;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 63px;
+    background: white;
+    border-radius: 50%;
+    font-size: 30px;
+    color: var(--co);
+    transition: .5s;
+  }
+  
+  ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background:  var(--c);
+    transition: .5s;
+    transform: scale(.9);
+    z-index: -1;
+  }
+  
+  ul li a:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px  var(--c);
+  }
+  
+  ul li a:hover {
+    color:  var(--c);
+    box-shadow: 0 0 5px  var(--c);
+    text-shadow: 0 0 5px  var(--c);
+  }
+
+  /* external css: flickity.css */
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+.gallery {
+  background: #EEE;
+}
+
+.gallery-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
