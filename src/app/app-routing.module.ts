@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent }, 
   { path: 'books', component: BooksListingComponent },
   { path: 'books/:id', component: BooksDetailsComponent },
-  { path: 'cart', component: CartComponent, canActivate:[AuthGuard] },
+  { path: 'cart', component: NewcartComponent, canActivate:[AuthGuard] },
   { path: 'admin', component:DashboardComponent, canActivate:[AuthGuard] , data:{roles:['Admin']}},
   { path: 'admin-dashboard', component:DashboardComponent, canActivate:[AuthGuard] , data:{roles:['Admin']} },
   { path: 'admin-orders', component:AdminOrdersComponent, canActivate:[AuthGuard] , data:{roles:['Admin']} },
