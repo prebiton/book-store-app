@@ -17,7 +17,9 @@ export class NewcartComponent implements OnInit {
   subTotal: number = 0;
   subtotalstring: any;
   total: number = 0;
+  shippingCost: number = 4.99;
   totalstring:any;
+  isEmptyCart: boolean = false;
 
   constructor(private bookService: BookService, private cartDataService: CartDataService) { }
 
@@ -59,7 +61,13 @@ export class NewcartComponent implements OnInit {
     }
     console.log(this.subTotal);
     this.subtotalstring = (Math.round(this.subTotal * 100) / 100).toFixed(2);
-    this.total = this.subTotal + 4.99;
+    
+    if(this.personalCartItemList.length == 0){
+      this.isEmptyCart = true;
+      this.shippingCost = 0;
+    }
+    this.total = this.subTotal + this.shippingCost;
+    console.log(this.isEmptyCart);
     this.totalstring = (Math.round(this.total * 100) / 100).toFixed(2);
   }
 
