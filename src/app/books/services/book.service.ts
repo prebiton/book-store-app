@@ -16,6 +16,7 @@ export class BookService {
   private discountURL = 'http://localhost:60494/api/discount/'
   private userURL = 'http://localhost:60494/api/users/'
   private cartURL = 'http://localhost:60494/api/cart/'
+  private wishURL = 'http://localhost:60494/api/wishlist/'
 
   constructor( private http: HttpClient) { }
 
@@ -77,6 +78,20 @@ export class BookService {
       }));
   }
 
+  createWish( wishData: any ): any { // 1. get the form data from comp ts 
+    console.log(wishData);
+    // 2. send the form data to the REST API 
+    // 2.1 What's the REST API? https://jsonplaceholder.typicode.com/users/ 
+    // 2.2 What's the HTTP Method? POST
+    // 2.3 What's the REST API Client? HttpClient
+    return this.http.post(this.wishURL, wishData)
+      .pipe( map( (res: any) => { // 3. get the resp from the REST API
+        console.log(res);
+        // 4. send the resp to the comp ts
+        return res;
+      }));
+  }
+
   getBooks(): Observable<any[]> {
     return this.http.get(this.REST_API_URL)
         .pipe( map( (res: any) => {
@@ -111,6 +126,14 @@ export class BookService {
 
   getCart(): Observable<any[]> {
     return this.http.get(this.cartURL)
+        .pipe( map( (res: any) => {
+          console.log(res);
+          return res;
+        }));
+  }
+
+  getWish(): Observable<any[]> {
+    return this.http.get(this.wishURL)
         .pipe( map( (res: any) => {
           console.log(res);
           return res;
