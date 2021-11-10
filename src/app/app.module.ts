@@ -48,6 +48,7 @@ import { AddCouponComponent } from './admin/admin-coupons/add-coupon/add-coupon.
 import { NewcartComponent } from './newcart/newcart.component';
 import { OrderinvoiceComponent } from './orderinvoice/orderinvoice.component';
 import { MakeRatingComponent } from './make-rating/make-rating.component';
+import { WishlistComponent } from './books/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { MakeRatingComponent } from './make-rating/make-rating.component';
     NewcartComponent,
     OrderinvoiceComponent,
     MakeRatingComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

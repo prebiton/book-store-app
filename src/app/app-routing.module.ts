@@ -22,6 +22,7 @@ import { BooksListingComponent } from './books/books-listing/books-listing.compo
 import { FeaturedComponent } from './books/featured/featured.component';
 import { NewComponent } from './books/new/new.component';
 import { SearchComponent } from './books/search/search.component';
+import { WishlistComponent } from './books/wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
 import { CouponsComponent } from './coupons/coupons.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
@@ -73,6 +74,7 @@ const routes: Routes = [
   { path: 'order-invoice', component:OrderinvoiceComponent },
   { path: 'ncart', component:NewcartComponent },
   { path: 'rating', component:MakeRatingComponent },
+  { path: 'wishlist', component:WishlistComponent },
 ];
 
 @NgModule({
