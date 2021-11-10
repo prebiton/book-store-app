@@ -1,9 +1,27 @@
 <app-header></app-header>
-<div class="container mt-5">
+
+<div class="space-bottom-1"></div>
+<div class="banner">
+    <div class="container">
+        <div class="l-container">
+            <div class=" b-game-card" *ngFor="let bok of enabledBookList">
+                <div class="b-game-card__cover" style="background-image: url({{bok.BImgPath}});"
+                    routerLink="/books/{{bok.BId}}">
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+    <div class="container mt-5">
     <div class="row">
-        <div class="col-md-3 col-sm-6" *ngFor="let bok of enabledBookList">
-            <div class="product-grid" >
-                <div class="product-image">
+        
+        <div class="col-md-2 col-sm-6" *ngFor="let bok of enabledBookList">
+            <div class="product-grid">
+                  
+                  <div class="product-image ">
                     <a routerLink="/books/{{bok.BId}}" class="image">
                         <img class="pic-1" [src]="bok.BImgPath">
                         <img class="pic-2" [src]="bok.BImgPath">
@@ -24,27 +42,32 @@
                     <h3 class="title"><a routerLink="/books/{{bok. BId}}">{{bok.BTitle}}</a></h3>
                     <div class="price">${{bok.BPrice}}</div>
                 </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="row">
+    <div class="col-lg-3 col-md-6" *ngFor="let book of bookList">
+        <div class="card" style="width: 18rem;" >
+            <img [src]="book.BImgPath" class="card-img-top p-1" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{book.BTitle}}</h5>
+                <p class="card-text">{{book.BDesc}}</p>
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-primary" (click)="handleAddToCart(book)">Add to Cart</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-primary justify-content-end">Wishlist</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    <!-- <div class="row">
-        <div class="col-lg-3 col-md-6" *ngFor="let book of bookList">
-            <div class="card" style="width: 18rem;" >
-                <img [src]="book.BImgPath" class="card-img-top p-1" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{book.BTitle}}</h5>
-                    <p class="card-text">{{book.BDesc}}</p>
-                    <div class="row">
-                        <div class="col">
-                            <a class="btn btn-primary" (click)="handleAddToCart(book)">Add to Cart</a>
-                        </div>
-                        <div class="col">
-                            <a class="btn btn-primary justify-content-end">Wishlist</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div> -->
 </div>
+</div>
+-->
