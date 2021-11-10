@@ -21,9 +21,15 @@ export class BooksListingComponent implements OnInit {
     BId: 1,
     BQty: 1
   }
+  wishList: any[] = [];
+  wishItem: any = {
+    UserId: 1,
+    BId: 1
+  }
   username: any;
   userid : any;
-  isPresent : boolean = false;
+  isPresentCart : boolean = false;
+  isPresentWish: boolean = false;
 
   booksSubscription: Subscription | undefined = undefined;
 
@@ -84,11 +90,11 @@ export class BooksListingComponent implements OnInit {
           this.cartItem.cartTempId = this.cartList[i].CartId;
           this.cartItem.BQty = this.cartList[i].BQty + 1;
           this.bookService.updateCart(this.cartItem);
-          this.isPresent = true;
+          this.isPresentCart = true;
         }
       }
     }
-    if(!this.isPresent){
+    if(!this.isPresentCart){
       console.log(this.cartItem);
       this.bookService.createCart(this.cartItem)
       .subscribe( (res: any) => { // 3. get the resp from the service
@@ -109,5 +115,39 @@ export class BooksListingComponent implements OnInit {
         //console.log(this.isSaved);
 
       //});
+  }
+
+  async handleAddToWishList(book: any): Promise<void> {
+    console.log(book);
+    console.log("handleAddToWishList")
+    //this.cartDataService.updateCart(book);
+    console.log(this.userid);
+    this.wishItem.UserId = this.userid;
+    this.wishItem.BId = book.BId;
+
+    console.log(this.wishItem);
+
+    this.bookService.getWish()
+      .subscribe( (res: any) => {
+        console.log(res);
+        this.wishList = res
+      })
+    await this.delay(200); 
+    for(var i = 0; i < this.wishList.length ; i++) {
+      if(this.wishList[i].UserId == this.cartItem.UserId){
+        if(this.wishList[i].BId == this.cartItem.BId){
+          this.isPresentWish = true;
+        }
+      }
+    }
+    if(!this.isPresentWish){
+      console.log(this.wishItem);
+      this.bookService.createWish(this.wishItem)
+      .subscribe( (res: any) => { // 3. get the resp from the service
+        //if(res == "Success"){
+        //}
+
+      });
+    }
   }
 }
