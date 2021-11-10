@@ -2,10 +2,10 @@
 
 <div class="container mt-5">
     <div class="l-container">
-        <div class="col">
-            <div class="b-game-card row ">
+        <div class="col" *ngFor="let book of enabledBookList">
+            <div class="b-game-card row" routerLink="/books/{{book.BId}">
                 <div class="b-game-card__cover"
-                    style="background-image: url(https://andrewhawkes.github.io/codepen-assets/steam-game-cards/game_1.jpg);">
+                    style="background-image: url({{book.BImgPath}});">
                 </div>
             </div>
             <div style="padding-bottom: 1rem!important;"></div>
@@ -18,7 +18,7 @@
             <div class="row container" style="display: flex;justify-content: center;align-items: center;">
                 <div class="col-md-6">
                     <div class="card-body">
-                        <span style="font-size: 25px;  font-weight: bolder; color:black !important;">₹500</span>
+                        <span style="font-size: 25px;  font-weight: bolder; color:black !important;">₹{{book.BPrice}}</span>
                     </div>
                 </div>
                 <div class="col-md-2">
