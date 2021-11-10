@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { BookService } from 'src/app/books/services/book.service';
 
@@ -17,13 +18,15 @@ export class AdminCouponsComponent implements OnInit {
   updateReqSent : boolean = false;
   isDeleted : boolean = false;
 
-  constructor( private bookService: BookService ) { }
+  constructor( private bookService: BookService, private router: Router ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.discountsSubscription = this.bookService.getDiscounts()
     .subscribe( (res: any) => {
       this.discountList = res;
     });
+
+    await this.delay(200); 
 
 
   }
@@ -54,14 +57,22 @@ export class AdminCouponsComponent implements OnInit {
       console.log(res);
       this.discountData = res
     })
-    await this.delay(50); 
+    await this.delay(200); 
 
     this.bookService.deleteDiscount(this.discountData);
+    await this.delay(200); 
     this.isDeleted = true;
   }
 
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
+
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
 
 }

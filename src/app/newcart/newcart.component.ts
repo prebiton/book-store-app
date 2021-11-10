@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookService } from '../books/services/book.service';
 import { CartDataService } from '../cart/services/cart-data.service';
 
@@ -17,9 +18,11 @@ export class NewcartComponent implements OnInit {
   subTotal: number = 0;
   subtotalstring: any;
   total: number = 0;
+  shippingCost: number = 4.99;
   totalstring:any;
+  isEmptyCart: boolean = false;
 
-  constructor(private bookService: BookService, private cartDataService: CartDataService) { }
+  constructor(private bookService: BookService, private cartDataService: CartDataService,private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     // this.cartDataService.latestCartItemsList.subscribe((cartItems: any[] | undefined) => {
@@ -59,7 +62,13 @@ export class NewcartComponent implements OnInit {
     }
     console.log(this.subTotal);
     this.subtotalstring = (Math.round(this.subTotal * 100) / 100).toFixed(2);
-    this.total = this.subTotal + 4.99;
+    
+    if(this.personalCartItemList.length == 0){
+      this.isEmptyCart = true;
+      this.shippingCost = 0;
+    }
+    this.total = this.subTotal + this.shippingCost;
+    console.log(this.isEmptyCart);
     this.totalstring = (Math.round(this.total * 100) / 100).toFixed(2);
   }
 
@@ -75,6 +84,13 @@ export class NewcartComponent implements OnInit {
     console.log("handleRemoveFromCart")
     this.bookService.deleteCart(pdt);
   }
+
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
 
 
 }

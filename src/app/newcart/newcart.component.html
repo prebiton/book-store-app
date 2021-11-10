@@ -34,71 +34,45 @@
                 </div>
             </div>
 
-            <div class="row d-flex justify-content-center border-top">
+            <div class="row d-flex justify-content-center border-top" *ngIf="isEmptyCart">No items in cart</div>
+
+            <div class="row d-flex justify-content-center border-top" *ngFor="let book of personalCartItemList">
                 <div class="col-3">
                     <div class="row d-flex">
-                        <div class="book"> <img src="https://i.imgur.com/2DsA49b.jpg" class="book-img"> </div>
+                        <div class="book"> <img [src]="book.BImgPath" class="book-img"> </div>
                         <div class="my-auto flex-column d-flex pad-left">
-                            <h6 class="mob-text">Thinking, Fast and Slow</h6>
-                            <p class="mob-text">Daniel Kahneman</p>
+                            <h6 class="mob-text">{{book.BTitle}}</h6>
+                            <p class="mob-text">{{book.CatName}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="my-auto col-7">
                     <div class="row text-right">
                         <div class="col-4">
-                            <p class="mob-text">PaperBack</p>
+                            <p class="mob-text">Paperback</p>
                         </div>
-                        <div style="left: 60px;bottom: 15px;" class="col-4">
+                        <!-- <div style="left: 60px;bottom: 15px;" class="col-4">
                             <select class="form-control">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
                             </select>
+                        </div> -->
+                        <div class="col-4">
+                            <h6 class="mob-text">{{book.BQty}}</h6>
                         </div>
                         <div class="col-3">
-                            <h6 class="mob-text">$9.99</h6>
+                            <h6 class="mob-text">₹{{book.BPrice}}</h6>
                         </div>
-                        <div class="col-1">
-                            <i style="color:red;" class="nav-icon fas fa-trash-alt"></i>
+                        <div class="col-1"  (click)="handleRemoveFromCart(book); reloadComponent();">
+                            <i style="color:red;" class="nav-icon fas fa-trash-alt"  ></i>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row d-flex justify-content-center border-top">
-                <div class="col-3">
-                    <div class="row d-flex">
-                        <div class="book"> <img src="https://i.imgur.com/Oj1iQUX.jpg" class="book-img"> </div>
-                        <div class="my-auto flex-column d-flex pad-left">
-                            <h6 class="mob-text">Homo Deus: A Brief<br>History of Tomorrow</h6>
-                            <p class="mob-text">Yuval Noah Harari</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="my-auto col-7">
-                    <div class="row text-right">
-                        <div class="col-4">
-                            <p class="mob-text">PaperBack</p>
-                        </div>
-                        <div style="left: 60px;bottom: 15px;" class="col-4">
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <h6 class="mob-text">$9.99</h6>
-                        </div>
-                        <div class="col-1">
-                            <i style="color:red;" class="nav-icon fas fa-trash-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         
         
@@ -153,17 +127,17 @@
                             <div class="col-lg-4 mt-2">
                                 <div class="row d-flex justify-content-between px-4">
                                     <p class="mb-1 text-left">Subtotal</p>
-                                    <h6 class="mb-1 text-right">$23.49</h6>
+                                    <h6 class="mb-1 text-right">₹{{subtotalstring}}</h6>
                                 </div>
                                 <div class="row d-flex justify-content-between px-4">
                                     <p class="mb-1 text-left">Shipping</p>
-                                    <h6 class="mb-1 text-right">$2.99</h6>
+                                    <h6 class="mb-1 text-right">₹{{shippingCost}}</h6>
                                 </div>
                                 <div class="row d-flex justify-content-between px-4" id="tax">
                                     <p class="mb-1 text-left">Total (tax included)</p>
-                                    <h6 class="mb-1 text-right">$26.48</h6>
+                                    <h6 class="mb-1 text-right">₹{{totalstring}}</h6>
                                 </div> <button class="btn-block btn-blue"> <span> <span id="checkout">Checkout</span>
-                                        <span id="check-amt">$26.48</span> </span> </button>
+                                        <span id="check-amt">₹{{totalstring}}</span> </span> </button>
                             </div>
                         </div>
                     </div>
