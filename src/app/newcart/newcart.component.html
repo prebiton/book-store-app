@@ -65,7 +65,7 @@
                         <div class="col-3">
                             <h6 class="mob-text">₹{{book.BPrice}}</h6>
                         </div>
-                        <div class="col-1" (click)="handleRemoveFromCart(book)">
+                        <div class="col-1"  (click)="handleRemoveFromCart(book); reloadComponent();">
                             <i style="color:red;" class="nav-icon fas fa-trash-alt"  ></i>
                         </div>
                     </div>
