@@ -26,6 +26,14 @@ export class BooksDetailsComponent implements OnInit {
     BQty: 1
   }
   isPresent : boolean = false;
+  wishList: any[] = [];
+  wishItem: any = {
+    UserId: 1,
+    BId: 1
+  }
+  isPresentCart : boolean = false;
+  isPresentWish: boolean = false;
+
 
   constructor( private bookService: BookService, private route: ActivatedRoute) { }
 
@@ -104,6 +112,40 @@ export class BooksDetailsComponent implements OnInit {
     if(!this.isPresent){
       console.log(this.cartItem);
       this.bookService.createCart(this.cartItem)
+      .subscribe( (res: any) => { // 3. get the resp from the service
+        //if(res == "Success"){
+        //}
+
+      });
+    }
+  }
+
+  async handleAddToWishList(book: any): Promise<void> {
+    console.log(book);
+    console.log("handleAddToWishList")
+    //this.cartDataService.updateCart(book);
+    console.log(this.userid);
+    this.wishItem.UserId = this.userid;
+    this.wishItem.BId = book.BId;
+
+    console.log(this.wishItem);
+
+    this.bookService.getWish()
+      .subscribe( (res: any) => {
+        console.log(res);
+        this.wishList = res
+      })
+    await this.delay(200); 
+    for(var i = 0; i < this.wishList.length ; i++) {
+      if(this.wishList[i].UserId == this.cartItem.UserId){
+        if(this.wishList[i].BId == this.cartItem.BId){
+          this.isPresentWish = true;
+        }
+      }
+    }
+    if(!this.isPresentWish){
+      console.log(this.wishItem);
+      this.bookService.createWish(this.wishItem)
       .subscribe( (res: any) => { // 3. get the resp from the service
         //if(res == "Success"){
         //}
