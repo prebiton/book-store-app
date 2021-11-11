@@ -301,6 +301,22 @@ export class BookService {
     });
   }
 
+  deleteWish( deleteableWishData: any): any{
+    return this.http.delete(this.wishURL + deleteableWishData.UserId + "?bid=" + deleteableWishData.BId, deleteableWishData)
+    .toPromise()
+    .then( (res: any) => {
+      console.log(res);
+      return res;
+    })
+    .catch( (err: any) => {
+      console.log(err);
+      return err;
+    })
+    .finally( () => {
+      console.log('It is over!');
+    });
+  }
+
   getFeaturedBooks(): Observable<any[]> {
     return this.http.get(this.featuredURL)
         .pipe( map( (res: any) => {
