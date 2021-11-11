@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrevorderComponent } from './prevorder.component';
+import { TestcomponentComponent } from './testcomponent.component';
 
-describe('PrevorderComponent', () => {
-  let component: PrevorderComponent;
-  let fixture: ComponentFixture<PrevorderComponent>;
+describe('TestcomponentComponent', () => {
+  let component: TestcomponentComponent;
+  let fixture: ComponentFixture<TestcomponentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PrevorderComponent ]
+      declarations: [ TestcomponentComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PrevorderComponent);
+    fixture = TestBed.createComponent(TestcomponentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
