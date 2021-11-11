@@ -21,8 +21,8 @@ export class SigninComponent implements OnInit {
   addUserForm: FormGroup = new FormGroup({
     // Step 2: Have the input equivalents in TS 
     // Refer HTML for step 3
-    UName: new FormControl( 'Ravi', Validators.required), // Step 5: Let's work on Validations
-    UPwd: new FormControl('ravi@123', Validators.required), // For step 6 --- go to the HTML
+    UName: new FormControl( '', Validators.required), // Step 5: Let's work on Validations
+    UPwd: new FormControl('', Validators.required), // For step 6 --- go to the HTML
   });
 
   constructor( private userService: UserService , private router : Router) { // 1. connect with service using dependency injection

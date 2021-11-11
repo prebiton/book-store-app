@@ -55,6 +55,7 @@ export class UserService {
        }));
   }
 
+
   roleMatch(allowedRoles: any): boolean {
     var isMatch = false;
     //console.log("inside user.services.ts" , allowedRoles[0], localStorage.getItem('userRole') )
@@ -109,6 +110,18 @@ export class UserService {
     .finally( ()=>{
       console.log('Its Over');
     });
+  }
+
+
+
+
+
+  getUserProfileInfo(id: any):any{
+    return this.http.get('http://localhost:60494/api/Users/' + id)
+    .pipe(map((res: any) => {
+      console.log(res);
+      return res;
+    }));
   }
 
 }

@@ -17,10 +17,10 @@ export class AddUserComponent implements OnInit {
   addUserForm: FormGroup = new FormGroup({
     // Step 2: Have the input equivalents in TS 
     // Refer HTML for step 3
-    UName: new FormControl( 'Ravi', Validators.required), // Step 5: Let's work on Validations
-    UPwd: new FormControl('2386238462', Validators.required), // For step 6 --- go to the HTML
-    UEmail: new FormControl('r@g', [Validators.required, Validators.email]), // multiple validators can be used in an element
-    UMobile: new FormControl('2647382981', [Validators.required,Validators.pattern("[0-9 ]{10}")  ]),
+    UName: new FormControl( '', Validators.required), // Step 5: Let's work on Validations
+    UPwd: new FormControl('', Validators.required), // For step 6 --- go to the HTML
+    UEmail: new FormControl('', [Validators.required, Validators.email]), // multiple validators can be used in an element
+    UMobile: new FormControl('', [Validators.required,Validators.pattern("[0-9 ]{10}")  ]),
     Roles : new FormControl(["User"]),
   });
 
