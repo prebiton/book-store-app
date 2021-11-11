@@ -25,7 +25,6 @@ export class BooksDetailsComponent implements OnInit {
     BId: 1,
     BQty: 1
   }
-  isPresent : boolean = false;
   wishList: any[] = [];
   wishItem: any = {
     UserId: 1,
@@ -105,11 +104,11 @@ export class BooksDetailsComponent implements OnInit {
           this.cartItem.cartTempId = this.cartList[i].CartId;
           this.cartItem.BQty = this.cartList[i].BQty + 1;
           this.bookService.updateCart(this.cartItem);
-          this.isPresent = true;
+          this.isPresentCart = true;
         }
       }
     }
-    if(!this.isPresent){
+    if(!this.isPresentCart){
       console.log(this.cartItem);
       this.bookService.createCart(this.cartItem)
       .subscribe( (res: any) => { // 3. get the resp from the service
