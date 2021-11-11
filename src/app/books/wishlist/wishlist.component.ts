@@ -29,7 +29,7 @@ export class WishlistComponent implements OnInit {
         console.log(res);
         this.userList = res
       })
-      await this.delay(50); 
+      await this.delay(200); 
       for(var i = 0; i < this.userList.length; i++){
         console.log(this.userList[i].UName)
         if (this.username == this.userList[i].UName){
@@ -46,6 +46,8 @@ export class WishlistComponent implements OnInit {
     await this.delay(200); 
 
     for(var i = 0; i < this.wishItemList.length; i++){
+      console.log(this.userid);
+      console.log(this.wishItemList[i].UserId);
       if( this.wishItemList[i].UserId == this.userid){
         console.log(this.wishItemList[i]);
         this.personalWishItemList.push(this.wishItemList[i]);
