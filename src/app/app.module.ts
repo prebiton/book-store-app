@@ -49,6 +49,7 @@ import { NewcartComponent } from './newcart/newcart.component';
 import { OrderinvoiceComponent } from './orderinvoice/orderinvoice.component';
 import { MakeRatingComponent } from './make-rating/make-rating.component';
 import { WishlistComponent } from './books/wishlist/wishlist.component';
+import { TestcomponentComponent } from './testcomponent/testcomponent.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { WishlistComponent } from './books/wishlist/wishlist.component';
     OrderinvoiceComponent,
     MakeRatingComponent,
     WishlistComponent,
+    TestcomponentComponent,
   ],
   imports: [
     BrowserModule,
