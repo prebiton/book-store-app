@@ -302,6 +302,7 @@ export class BookService {
   }
 
   deleteWish( deleteableWishData: any): any{
+    console.log("inside service delete wish");
     return this.http.delete(this.wishURL + deleteableWishData.UserId + "?bid=" + deleteableWishData.BId, deleteableWishData)
     .toPromise()
     .then( (res: any) => {
