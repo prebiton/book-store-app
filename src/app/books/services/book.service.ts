@@ -17,6 +17,7 @@ export class BookService {
   private userURL = 'http://localhost:60494/api/users/'
   private cartURL = 'http://localhost:60494/api/cart/'
   private wishURL = 'http://localhost:60494/api/wishlist/'
+  private orderURL = 'http://localhost:60494/api/orders/'
 
   constructor( private http: HttpClient) { }
 
@@ -85,6 +86,20 @@ export class BookService {
     // 2.2 What's the HTTP Method? POST
     // 2.3 What's the REST API Client? HttpClient
     return this.http.post(this.wishURL, wishData)
+      .pipe( map( (res: any) => { // 3. get the resp from the REST API
+        console.log(res);
+        // 4. send the resp to the comp ts
+        return res;
+      }));
+  }
+
+  createOrder( orderData: any ): any { // 1. get the form data from comp ts 
+    console.log(orderData);
+    // 2. send the form data to the REST API 
+    // 2.1 What's the REST API? https://jsonplaceholder.typicode.com/users/ 
+    // 2.2 What's the HTTP Method? POST
+    // 2.3 What's the REST API Client? HttpClient
+    return this.http.post(this.orderURL, orderData)
       .pipe( map( (res: any) => { // 3. get the resp from the REST API
         console.log(res);
         // 4. send the resp to the comp ts
