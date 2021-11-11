@@ -12,6 +12,7 @@ import { AdminCouponsComponent } from './admin/admin-coupons/admin-coupons.compo
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AdminPasswordComponent } from './admin/admin-password/admin-password.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { EditUserComponent } from './admin/admin-users/edit-user/edit-user.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AddUserComponent } from './auth/components/add-user/add-user.component';
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'admin-books/add', component: AddBookComponent, canActivate:[AuthGuard] , data:{roles:['Admin']}},
   { path: 'admin-books/:id', component: EditBookComponent, canActivate:[AuthGuard] , data:{roles:['Admin']}},
   { path: 'admin-users', component:AdminUsersComponent, canActivate:[AuthGuard] , data:{roles:['Admin']} },
+  { path: 'admin-users/:id', component: EditUserComponent, canActivate:[AuthGuard] , data:{roles:['Admin']}},
   { path: 'admin-categories', component:AdminCategoriesComponent, canActivate:[AuthGuard] , data:{roles:['Admin']} },
   { path: 'admin-categories/add', component:AddCategoryComponent, canActivate:[AuthGuard] , data:{roles:['Admin']} },
   { path: 'admin-categories/:id', component:EditCategoryComponent, canActivate:[AuthGuard] , data:{roles:['Admin']} },

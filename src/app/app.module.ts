@@ -50,6 +50,8 @@ import { OrderinvoiceComponent } from './orderinvoice/orderinvoice.component';
 import { MakeRatingComponent } from './make-rating/make-rating.component';
 import { WishlistComponent } from './books/wishlist/wishlist.component';
 import { TestcomponentComponent } from './testcomponent/testcomponent.component';
+import { CommonModule } from '@angular/common';
+import { EditUserComponent } from './admin/admin-users/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -98,13 +100,15 @@ import { TestcomponentComponent } from './testcomponent/testcomponent.component'
     MakeRatingComponent,
     WishlistComponent,
     TestcomponentComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [UserService , AuthGuard],
   bootstrap: [AppComponent]
