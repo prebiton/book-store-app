@@ -30,6 +30,7 @@ export class BooksListingComponent implements OnInit {
   userid : any;
   isPresentCart : boolean = false;
   isPresentWish: boolean = false;
+  searchText: string = "";
 
   booksSubscription: Subscription | undefined = undefined;
 
@@ -54,7 +55,7 @@ export class BooksListingComponent implements OnInit {
     .subscribe( (res: any) => {
       this.bookList = res;
     });
-    await this.delay(50);
+    await this.delay(200);
     for (var i = 0; i < this.bookList.length; i++){
       if( this.bookList[i].BStatus == true ){
         this.enabledBookList.push(this.bookList[i])

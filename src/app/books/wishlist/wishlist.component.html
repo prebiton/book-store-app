@@ -19,6 +19,7 @@
                         </div>
                     </div>
                     <div style="display: block;width: 100%;overflow-x: auto;" class="cart-body">
+                        <div class="row border-top border-bottom" *ngIf="isEmptyWish">No items in Wishlist</div>
                         <div class="row border-top border-bottom" *ngFor="let wish of personalWishItemList">
                             <div class="row main align-items-center">
                                 <div class="col-2"><img class="img-fluid" [src]="wish.BImgPath">
@@ -30,13 +31,13 @@
                                 <div class="col-3">
                                     <ul>
                                         <li style="--c:#5628EE;--co:#5628EE95">
-                                            <a href="#">
+                                            <a (click)="handleAddToCart(wish)">
                                                 <i class="nav-icon fas fa-shopping-cart"></i>
                                             </a>
                                         </li>
                                         <li style="--c: red;--co:#FF000030">
-                                            <a href="#">
-                                                <i class="nav-icon fas fa-trash"></i>
+                                            <a (click)="handleRemoveFromWish(wish); reloadComponent();">
+                                                <i class="nav-icon fas fa-trash" ></i>
                                             </a>
                                         </li>
                                     </ul>
